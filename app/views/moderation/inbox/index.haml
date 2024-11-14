@@ -1,0 +1,17 @@
+- provide(:title, generate_title(t(".title", user: @user.screen_name)))
+
+= render "header", user: @user, hidden: false
+= render "header", user: @user, hidden: true
+
+.container-lg.container--main
+  #entries
+    - @inboxes.each do |i|
+      = render "inbox/entry", i: i
+
+  = render "shared/cursored_pagination_dummy", more_data_available: @more_data_available, last_id: @inbox_last_id
+
+  - if @more_data_available
+
+    .d-flex.justify-content-center.justify-content-sm-start
+      %button.btn.btn-light#load-more-btn{ type: :button, data: { last_id: @inbox_last_id } }
+        = t("voc.load")
