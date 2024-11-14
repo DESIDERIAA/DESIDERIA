@@ -1,0 +1,31 @@
+.container
+  .card.bg-primary.text-bg-primary.my-3
+    .card-body
+      %h1= APP_CONFIG["site_name"]
+      %p= t(".subtitle")
+  .row
+    .col-sm-8
+      .card.card--fullheight
+        .card-body
+          - if APP_CONFIG["about"].present?
+            = raw_markdown APP_CONFIG["about"]
+          - else
+            = t(".about_missing")
+    .col-sm-4
+      .card.card--fullheight
+        .card-body
+          %h2= t(".statistics.header")
+          %p= t(".statistics.body", app_name: APP_CONFIG["site_name"])
+          .entry
+            .entry__value= @questions
+            %h4.entry__description= Question.model_name.human(count: @questions)
+          .entry
+            .entry__value= @answers
+            %h4.entry__description= Answer.model_name.human(count: @answers)
+          .entry
+            .entry__value= @users
+            %h4.entry__description= User.model_name.human(count: @users)
+
+= render "shared/links"
+
+- provide(:title, generate_title(t(".title")))
