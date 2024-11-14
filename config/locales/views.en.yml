@@ -1,0 +1,215 @@
+en:
+  auth:
+    two_factor_authentication:
+      heading: "Two-factor authentication"
+      otp_attempt: "Please enter the code from your authenticator app"
+  announcement:
+    index:
+      title: :activerecord.models.announcement.other
+      confirm: "Are you sure you want to delete this announcement?"
+      new: "Add Announcement"
+    new:
+      title: "Create Announcement"
+    edit:
+      title: "Edit Announcement"
+  devise:
+    registrations:
+      edit:
+        title: "Account Settings"
+      new:
+        title: "Sign up"
+        info: "With signing up you accept our %{terms}"
+    sessions:
+      new:
+        title: "Sign in"
+  feedback:
+    consent:
+      title: "Feedback"
+    bugs:
+      title: "Bugs – Feedback"
+    features:
+      title: "Feature Requests – Feedback"
+  modal:
+    password:
+      title: "Save account changes"
+  services:
+    index:
+      title: "Service Settings"
+  settings:
+    account:
+      email_confirm: "Currently awaiting confirmation for %{resource}"
+      help:
+        password: "Leave this blank if you don't want to change it"
+      delete:
+        action: "Delete my account"
+        heading: "Unsatisfied?"
+    data:
+      heading: "Your Profile Data"
+      body: "Everything we have about you! Really, not that much as you might expect."
+      none: "None set!"
+      section:
+        general: "General"
+        profile: "Profile"
+        pictures: "Pictures"
+        ip: "IP"
+        miscellaneous: "Miscellaneous"
+        dates: "Dates"
+        sign_in: "Sign In"
+        create_update: "Create/Update"
+      pictures:
+        profile_picture:
+          heading: "Profile picture"
+          size:
+            small: "Small"
+            medium: "Medium"
+            large: "Large"
+            original: "Original image"
+        profile_header:
+          heading: "Profile header"
+          size:
+            mobile: "Mobile"
+            web: "Web"
+            retina: "Retina"
+            original: "Original image"
+    export:
+      heading: "Export your data"
+      body_html: |
+        <p>The data is inside a <code>.tar.gz</code> archive and available in three formats: YAML, JSON, and XML. 
+        The archive also contains a copy of your profile picture and header picture in all sizes.</p>
+        <p>Please note that you can only export your data once a week. Exporting your data
+        will take a while, so please be patient. You will receive a question once exporting
+        is done.</p>
+      export: "Export"
+      export_url:
+        none: "Once exporting your account is done, a download link will appear here."
+        present: "Here's your export from %{time}"
+    muted:
+      heading: "Muted words"
+      body: "Muting words (or longer phrases) will prevent questions containing those to appear in your inbox."
+      note: "Note: Filtered questions are discarded completely from your inbox, and won't reappear if you remove a filter later on."
+      placeholder: "Add a new muted word..."
+      actions:
+        add: "Add"
+        remove: "Remove"
+    notifications:
+      heading: "Notifications"
+      body: "Update your notification preferences here."
+      email_heading: "Emails"
+      type_questions: "New questions in your inbox"
+      type_questions_help: "When would you like to receive a notification?"
+      frequency_never: "Never"
+      frequency_immediately: "Immediately"
+      frequency_hourly: "Within one hour"
+      frequency_daily: "Within one day"
+    profile:
+      adjust:
+        profile_picture: "Adjust your new profile picture"
+        profile_header: "Adjust your new profile header"
+    security:
+      heading: "Two-factor authentication"
+      recovery_keys:
+        heading: "Your %{app_name} recovery codes"
+        generated_at: "These codes were generated at %{time}"
+        recommendation: "We recommend storing these in a password manager or printing them out on paper."
+        print: "Print"
+        consideration: "Please consider the environment before printing this page."
+      totp_enabled:
+        body: "Your account is set up to require the use of a one-time password in order to log in."
+        recovery_code_count: "You currently have %{count} unused recovery codes."
+        remove:
+          action: "Remove Two-factor authentication"
+          confirm: "Are you sure you want to disable two-factor authentication?"
+        regenerate:
+          action: "Regenerate recovery codes"
+          confirm: "Are you sure? This will disable your previous set of recovery codes."
+      totp_setup:
+        setup_key: "If you cannot scan the QR code, use the following key instead:"
+        setup_qr: "Once you have downloaded an authenticator app, add your %{app_name} account by scanning the QR code displayed on the left."
+        otp_validation: "Enter the code displayed in the app here:"
+        app:
+          none: "If you do not have an authenticator app already installed on your device, we suggest one of the following:"
+          aegis: "Aegis Authenticator for Android"
+          strongbox: "Strongbox Authenticator for iOS"
+          microsoft: "Microsoft Authenticator"
+        source:
+          app_store: "App Store"
+          fdroid: "F-Droid"
+          google_play: "Google Play"
+          code: "Source Code"
+    services:
+      services:
+        one: "Sharing is enabled for the following service:"
+        other: "Sharing is enabled for the following services:"
+        zero: "You have not connected any services yet."
+      connect: "Connect to %{service}"
+      disconnect: "Disconnect"
+      confirm: "Really disconnect service %{service}?"
+    theme:
+      heading: "Theming"
+      lead: "Welcome to the Theme Editor!"
+      body_html: |
+        <p>Here you'll be able to modify your Retrospring experience by adjusting all available colors.
+        To further help you with adjusting needs, there are a few example elements using the specified colors, and sections will include
+        descriptions on their general use on the site!</p>
+        <p>And with that: <b>Happy Theming!</b>
+      delete: "Delete Theme"
+      general:
+        heading: "General"
+        body: "Here you'll find general page values that are basically visible all across the page."
+      colors:
+        heading: "Colors"
+        body: |
+          Colors you can find used on the site. The names of the colors usually describe the context.
+          The "text" colors for all styles represent the color that text on top of these colors has.
+        alert:
+          example: "A simple %{type} alert — check it out!"
+          type:
+            danger: "danger"
+            info: "info"
+            primary: "primary"
+            success: "success"
+            warning: "warning"
+        button:
+          example: "A %{type} button"
+          type:
+            dark: "dark"
+            light: "light"
+        text:
+          example: "Some muted text"
+      forms:
+        heading: "Forms and Inputs"
+        body: "Styles for form inputs, like text fields."
+      raised:
+        heading: "Raised Content"
+        body: "Raised content basically describes all the different boxes and panels you can see across the site."
+        accent:
+          example: "Some text on top of a accented area on a raised element!"
+  tabs:
+    settings:
+      account: "Account"
+      profile: "Profile"
+      privacy: "Privacy"
+      notifications: "Notifications"
+      sharing: "Sharing"
+      security: "Security"
+      mutes: "Muted words"
+      theme: "Theme"
+      data: "Your Data"
+      export: "Export"
+  user:
+    data:
+      title: "Your Data"
+    edit:
+      title: "Profile Settings"
+    edit_mute:
+      title: "Muted Words"
+    edit_notifications:
+      title: "Notification settings"
+    edit_privacy:
+      title: "Privacy Settings"
+    edit_security:
+      title: "Security Settings"
+    edit_theme:
+      title: "Theme Settings"
+    export:
+      title: "Export"
