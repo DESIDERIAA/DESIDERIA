@@ -1,0 +1,15 @@
+.card
+  .card-body
+    %h2= t(".heading")
+    = t(".body_html")
+
+    %p
+      - if current_user.export_url.nil?
+        = t(".export_url.none")
+      - else
+        = t(".export_url.present", time: current_user.export_created_at)
+        %a{ href: current_user.export_url }
+          = File.basename current_user.export_url
+
+- provide(:title, generate_title(t(".title")))
+- parent_layout "user/settings"

@@ -1,0 +1,17 @@
+.container
+  .card.bg-primary.text-bg-primary.my-3
+    .card-body
+      %h1= APP_CONFIG["site_name"]
+      %p= t(".subtitle")
+  .row
+    .col-sm-12
+      .card.card--fullheight
+        .card-body
+          - if APP_CONFIG["about"].present?
+            = raw_markdown APP_CONFIG["about"]
+          - else
+            = t(".about_missing")
+
+= render "shared/links"
+
+- provide(:title, generate_title(t(".title")))

@@ -1,0 +1,19 @@
+%nav.navbar.navbar-themed.navbar-expand-lg.bg-primary.fixed-top.d-lg-block.d-none.d-print-none{ class: Rails.env.development? ? "navbar-dev" : "", role: :navigation }
+  .container
+    %a.navbar-brand{ href: '/', title: APP_CONFIG["site_name"] }
+      - if APP_CONFIG["use_svg_logo"]
+        = render inline: Rails.application.config.justask_svg_logo
+      - else
+        = APP_CONFIG["site_name"]
+      - if Rails.env.development?
+        %span.badge.rounded-pill.bg-warning.text-bg-warning.fs-7
+          DEV
+    %ul.nav.navbar-nav.me-auto
+    %ul.nav.navbar-nav
+      %li.nav-item.dropdown.profile--image-dropdown
+        %a.nav-link.dropdown-toggle.p-sm-0{ href: "#", data: { bs_toggle: :dropdown } }
+          = render AvatarComponent.new(user: current_user, size: "md", classes: ["d-none", "d-sm-inline"])
+          %span.d-inline.d-sm-none
+            = current_user.screen_name
+            %b.caret
+        = render 'navigation/dropdown/profile', size: "desktop"
