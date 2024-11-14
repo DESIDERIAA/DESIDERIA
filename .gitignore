@@ -1,0 +1,38 @@
+/.bundle
+
+/db/*.sqlite3
+/db/*.sqlite3-journal
+
+/log/*.log
+/tmp
+
+/config/database.yml
+/config/justask.yml
+.sass-cache/
+coverage/
+*.swp
+
+\#*#
+
+# Curse you, JetBrains!
+.idea/
+
+/public/assets
+/public/system
+
+# damn vim backup files
+*~
+
+# dont push generated js translations to repository
+/public/javascripts/i18n/
+
+# every fucking time, dolphin
+.directory
+# lookin' at you, OS trash
+.DS_Store
+Thumbs.DB
+desktop.ini
+
+# ignore exports
+/public/export
+

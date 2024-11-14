@@ -1,0 +1,55 @@
+.panel.panel-default#profile
+  %img.profile--avatar{src: @user.profile_picture.url(:large)}
+  - if @user.admin?
+    .profile--panel-badge.panel-badge-danger
+      %i.fa.fa-flask
+      = t 'views.user.title.admin'
+  - if @user.moderator?
+    .profile--panel-badge.panel-badge-success
+      %i.fa.fa-users
+      = t 'views.user.title.moderator'
+  - if @user.supporter?
+    .profile--panel-badge.panel-badge-warning
+      %i.fa.fa-star
+      = t 'views.user.title.supporter'
+  - if @user.contributor?
+    .profile--panel-badge.panel-badge-primary
+      %i.fa.fa-github
+      = t 'views.user.title.contributor'
+  - if @user.blogger?
+    .profile--panel-badge.panel-badge-info
+      %i.fa.fa-pencil
+      = t 'views.user.title.blogger'
+  - if @user.translator?
+    .profile--panel-badge.panel-badge-info
+      %i.fa.fa-globe
+      = t 'views.user.title.translator'
+  - if @user.banned?
+    .profile--panel-badge.panel-badge-default
+      %i.fa.fa-ban
+      = t 'views.user.title.banned'
+  - if @user.following? current_user
+    .profile--panel-badge.panel-badge-default
+      = t 'views.user.follows_you'
+  .panel-body
+    .profile--panel-name
+      - if @user.display_name.blank?
+        .profile--displayname
+          = @user.screen_name
+      - else
+        .profile--displayname
+          = @user.display_name
+        .profile--username
+          = @user.screen_name
+    - unless @user.bio.blank?
+      %p.profile--text= markdown @user.bio
+    - unless @user.website.blank?
+      %p.profile--text
+        %i.fa.fa-globe
+        %a{href: @user.website}= @user.display_website
+    - unless @user.location.blank?
+      %p.profile--text
+        %i.fa.fa-location-arrow
+        = @user.location
+    = render 'user/actions', user: @user, type: :follower
+= render 'user/stats', user: @user

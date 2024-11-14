@@ -1,0 +1,56 @@
+# The site name, shown everywhere.
+site_name: "justask"
+
+hostname: "justask.rrerr.net"
+https: true
+
+email_from: "noreply@justask.rrerr.net"
+
+# Name of the "Anonymous" user. (e.g. "Anonymous Coward", "Arno Nym", "Mr. X", ...)
+anonymous_name: "Anonymous"
+
+# How many items (questions, answers, ...) do you want to show per page?
+items_per_page: 10
+
+# OAuth tokens
+sharing:
+  twitter:
+    enabled: true
+    # Get the tokens from https://apps.twitter.com
+    consumer_key: ''
+    consumer_secret: ''
+  facebook:
+    enabled: false
+  tumblr:
+    enabled: true
+    # Get the tokens from https://www.tumblr.com/oauth/apps
+    consumer_key: ''
+    consumer_secret: ''
+
+# Redis
+redis_url: "redis://localhost:6379"
+
+# Site admins
+admins:
+  - screen_name: 'nilsding'
+    about_text: nilsding
+    subtext: Backend, Server & Code
+  - screen_name: 'pixeldesu'
+    about_text: pixeldesu
+    subtext: Frontend Design & Layout
+  - screen_name: 'Filippus'
+    about_text: Filippus
+    subtext: Moderator Management & Support
+
+# delete if using local storage
+fog:
+  # fog credentials
+  credentials:
+    provider: 'AWS'
+    aws_access_key_id: 'ACCESS KEY'
+    aws_secret_access_key: 'SECRET KEY'
+    region: 'space-pluto-1'
+  # bucket name, required
+  directory: 'retrospring'
+  # URL host, comment out to use default, GENERALLY you don't want to define this
+  # host: ''
