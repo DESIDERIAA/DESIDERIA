@@ -1,0 +1,20 @@
+= render 'navigation/dropdown/profile', size: "mobile"
+= render 'navigation/dropdown/notifications', notifications: notifications, size: "mobile"
+- notifications_icon = notification_count.nil? ? 'bell-o' : 'bell'
+%nav.navbar.navbar-themed.bg-primary.fixed-bottom.d-lg-none.d-block.d-print-none#rs-mobile-nav{ role: :navigation }
+  .container
+    %ul.nav.navbar-nav.navbar-icon-row
+      = nav_entry t("navigation.timeline"), root_path, icon: 'home', icon_only: true
+      = nav_entry t("navigation.inbox"), '/inbox',
+        badge: inbox_count, badge_color: 'primary', badge_pill: true,
+        icon: 'inbox', icon_only: true
+      - if APP_CONFIG.dig(:features, :discover, :enabled) || current_user.mod?
+        = nav_entry t("navigation.discover"), discover_path, icon: 'compass', icon_only: true
+      %li.nav-item
+        %a.nav-link{ href: '#', data: { toggle: 'dropdown', target: '#rs-mobile-nav-notifications' }, aria: { controls: 'rs-mobile-nav-notifications', expanded: 'false' } }
+          %i.fa{ class: "fa-#{notifications_icon}" }
+          %span.sr-only= t("navigation.notifications")
+          %span.badge.badge-pill.badge-primary= notification_count
+      %li.nav-item.profile--image-dropdown
+        %a.nav-link{ href: '#', data: { toggle: 'dropdown', target: '#rs-mobile-nav-profile' }, aria: { controls: 'rs-mobile-nav-profile', expanded: 'false' } }
+          %img.avatar-md.d-inline{ src: current_user.profile_picture.url(:small) }
