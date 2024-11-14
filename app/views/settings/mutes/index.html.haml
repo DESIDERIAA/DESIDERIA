@@ -1,0 +1,12 @@
+.card
+  .card-body
+    %h2= t(".heading")
+    %p= t(".body")
+    %p= t(".note")
+    #rules
+      - @rules.each do |rule|
+        = render "settings/mutes/rule", rule: rule
+    = render "settings/mutes/form"
+
+- provide(:title, generate_title(t(".title")))
+- parent_layout "user/settings"
