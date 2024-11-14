@@ -1,0 +1,14 @@
+= turbo_stream.append "notifications" do
+  - @notifications.each do |notification|
+    %li.card
+      .card-body
+        .d-flex
+          = render "notifications/type/#{notification.target.class.name.downcase.split('::').last}", notification: notification
+
+= turbo_stream.update "paginator" do
+  - if @more_data_available
+    = button_to t("voc.load"), notifications_path(type: params[:type]),
+      class: "btn btn-light",
+      method: :get,
+      params: { last_id: @notifications_last_id },
+      form: { data: { turbo_stream: true } }

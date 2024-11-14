@@ -1,0 +1,13 @@
+#reports
+  - @reports.each do |r|
+    = render "moderation/moderationbox", report: r
+
+- if @more_data_available
+  .d-flex.justify-content-center.justify-content-sm-start#paginator
+    = button_to t("voc.load"), moderation_reports_path(type: params[:type]),
+      class: "btn btn-light",
+      method: :get,
+      params: { last_id: @reports_last_id },
+      form: { data: { turbo_stream: true } }
+
+- parent_layout "moderation"
