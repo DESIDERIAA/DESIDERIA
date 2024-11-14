@@ -1,0 +1,177 @@
+en:
+  language: 'English (US)'
+  frontend:
+    load: "Load more"
+    success:
+      title: "Success!"
+    error:
+      title: "Uh-oh..."
+      message: "An error occurred, a developer should check the console for details"
+    subscription:
+      subscribe: "Successfully subscribed."
+      unsubscribe: "Successfully unsubscribed."
+      fail:
+        subscribe: "Failed to subscribe to answer."
+        unsubscribe: "Failed to unsubscribe from answer."
+    list:
+      confirm:
+        title: "Really delete this list?"
+        text: "You will not be able to recover this list."
+    destroy_question:
+      confirm:
+        title: "Are you sure?"
+        text: "The question will be moved back to your inbox, but it won't delete any posts to social media."
+    destroy_comment:
+      confirm:
+        title: "Really delete?"
+        text: "You will not be able to recover this comment."
+    destroy_report:
+      confirm:
+        title: "Really delete?"
+        text: "You will not be able to recover this report."
+    destroy_own:
+      confirm:
+        title: "Are you sure?"
+        text: "The question will be removed."
+    inbox:
+      empty: "Nothing to see here."
+      confirm_all:
+        title: "Really delete %{count} questions?"
+        text: "They will be gone forever."
+      confirm:
+        title: "Really delete?"
+        text: "This question will be gone forever."
+    report:
+      confirm:
+        title: "Really report this %{type}?"
+        text: "A moderator will review your report and decide what happens.\nIf you'd like, you can also specify a reason."
+        input: "Specify a reason..."
+  flash:
+    ban:
+      error: "I'm sorry, %{name}, I'm afraid I can't do that."
+      reason: "Ban reason: %{reason}"
+      until: "Banned until: %{time}"
+  messages:
+    noscript: "Please activate JavaScript."
+  views:
+    locale:
+      languages: "Languages"
+    placeholder:
+      comment: "Comment..."
+      question: "Type your question here…"
+    general:
+      answer: "Answer"
+      question: "Question"
+      comment: "Comment"
+      smile: "Smile"
+      follower: "Follower"
+      following: "Following"
+      timeline: "Timeline"
+      public: "Public"
+      user: "User"
+    list:
+      title: "List"
+      members: "Members"
+    actions:
+      title: "Actions"
+      ask: "Ask"
+      ask_question: "Ask a question"
+      answer: "Answer"
+      options: "Options"
+      delete: "Delete"
+      report: "Report"
+      return: "Return to Inbox"
+      subscribe: "Subscribe"
+      unsubscribe: "Unsubscribe"
+      view: "View comment smiles"
+      view_inbox: "View inbox"
+      load: "Load more"
+      follow: "Follow"
+      unfollow: "Unfollow"
+      list: "Manage list memberships"
+      ban: "Ban Control"
+      privilege: "Check %{user}'s privileges"
+      save: "Save changes"
+      cancel: "Cancel"
+      close: "Close"
+      done: "Done"
+      y: "Yes"
+      n: "No"
+      remove: "Remove"
+      block: "Block"
+      unblock: "Unblock"
+    sessions:
+      destroy: "Logout"
+      create: "Sign in"
+      new: "Sign up"
+    moderation:
+      tabs:
+        all: "All reports"
+      moderationbox:
+        reported: "%{user} reported a %{content} %{time} ago"
+        reason: "Reason:"
+        view: "View reported %{content}"
+    question:
+      title: "This question was not in your inbox? Answer it here!"
+    navigation:
+      timeline: "Timeline"
+      inbox: "Inbox"
+      discover: "Discover"
+      notifications: "Notifications"
+      show: "View profile"
+      settings: "Settings"
+      admin: "Kontrollzentrum"
+      sidekiq: "Sidekiq"
+      moderation: "Moderation Panel"
+    discover:
+      title: "Discover"
+      subtitle: "The perfect place to find interesting content from the last week on %{app_title}!"
+      content:
+        title: "Popular Content"
+        desc: "Answers with most smiles and most answered questions"
+        tab:
+          answers: "Most Liked"
+          questions: "Most Answers"
+          comments: "Most Controversial"
+      people:
+        title: "People"
+        desc: "Newcomers and people who asked the most questions"
+        tab:
+          new: "New Users"
+          questions: "Active Askers"
+          answers: "Most Answers"
+      userbox:
+        new: "registered %{time} ago"
+        answers: "answered %{questions}"
+        questions: "asked %{questions}"
+    answerbox:
+      asked: "%{user} asked %{time} ago"
+      read: "Read the entire answer"
+      answered: "%{hide} %{user}" # resolves into "Answered by %{user}"
+      hide: "Answered by" # ^
+      time: "%{time} ago"
+      no_smile: "No one smiled this, yet."
+      no_comment: "There are no comments yet."
+      commentsmile: "People who smiled this comment"
+    modal:
+      ask:
+        title: "Ask your followers"
+        choose: "Choose list:"
+        loading: "Asking..."
+      list:
+        title: "Manage list memberships"
+        tabs:
+          main: "Lists"
+          create: "Create new list"
+        create: "Create list"
+        name: "List name"
+        members: "members"
+      privilege:
+        moderator: "Someone trustworthy enough to help managing reports."
+        admin: "This user is part of the core team."
+    user:
+      follows_you: "Follows you"
+      title:
+        admin: "Admin"
+        moderator: "Moderator"
+        banned: "Banned"

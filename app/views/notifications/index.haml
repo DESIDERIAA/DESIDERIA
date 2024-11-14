@@ -1,0 +1,27 @@
+%ul.list-group#notifications
+  - if @notifications.count.zero?
+    %li.card.text-center
+      .card-body
+        .notifications--none
+          %i.fa.fa-bell-o.notification__bell-icon
+        %p
+          - if params[:type] == 'all'
+            = t(".none_filtered")
+          - else
+            = t(".none")
+  - else
+    - @notifications.each do |notification|
+      %li.card
+        .card-body
+          .media
+            = render "notifications/type/#{notification.target.class.name.downcase.split('::').last}", notification: notification
+
+  - unless @notifications.count.zero?
+    = render 'shared/cursored_pagination_dummy', more_data_available: @more_data_available, last_id: @notifications_last_id, permitted_params: %i[type]
+
+    - if @more_data_available
+      .d-flex.justify-content-center.justify-content-sm-start
+        %button.btn.btn-light#load-more-btn{ type: :button, data: { last_id: @notifications_last_id } }
+          = t("voc.load")
+
+- provide(:title, generate_title(t(".title")))
