@@ -1,0 +1,35 @@
+- type ||= nil
+.card.questionbox{ data: { id: q.id } }
+  .card-body
+    .media
+      - if type == 'discover'
+        .pull-left
+          %a{ href: user_screen_name(q.user, link_only: true) }
+            %img.avatar-md.mr-2{ src: q.user&.profile_picture&.url(:medium) }
+      .media-body
+        - if user_signed_in?
+          .pull-right
+            .btn-group
+              %button.btn.btn-link.btn-sm.dropdown-toggle{ data: { toggle: :dropdown }, aria: { expanded: false } }
+                %span.caret
+              .dropdown-menu.dropdown-menu-right{ role: :menu }
+                - if current_user.mod? || q.user == current_user
+                  %a.dropdown-item.text-danger{ href: '#', tabindex: -1, data: { action: 'ab-question-destroy', q_id: q.id } }
+                    %i.fa.fa-trash-o
+                    = t 'views.actions.delete'
+                - unless q.user == current_user
+                  %a.dropdown-item{ href: '#', tabindex: -1, data: { action: 'ab-question-report', q_id: q.id } }
+                    %i.fa.fa-exclamation-triangle
+                    = t 'views.actions.report'
+                - if current_user.has_role? :administrator
+                  %a.dropdown-item{ href: rails_admin_path_for_resource(q) }
+                    %i.fa.fa-gears
+                    = t("voc.view_in_rails_admin")
+        %h6.media-heading.text-muted.answerbox__question-user
+          = raw t('views.answerbox.asked', user: user_screen_name(q.user), time: time_tooltip(q))
+          - if q.answer_count > 1
+            ·
+            %a{ href: question_path(q.user.screen_name, q.id) }
+              = pluralize(q.answer_count, t('views.general.answer'))
+        .answerbox__question-text
+          = question_markdown q.content
