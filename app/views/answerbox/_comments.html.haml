@@ -1,0 +1,26 @@
+- if comments.all.count.zero?
+  = t(".none")
+- else
+  %ul.comment__container
+    - comments.order(:created_at).each do |comment|
+      %li.comment{ data: { comment_id: comment.id } }
+        .d-flex
+          .flex-shrink-0
+            %a{ href: user_path(comment.user) }
+              = render AvatarComponent.new(user: comment.user, size: "sm", classes: ["comment__user-avatar"])
+          .flex-grow-1
+            %h6.comment__user
+              = user_screen_name comment.user
+              %span.text-muted{ title: comment.created_at, data: { bs_toggle: :tooltip, bs_placement: :right } }
+                = t("time.distance_ago", time: time_ago_in_words(comment.created_at))
+            .comment__content
+              = markdown comment.content
+          .flex-shrink-0.ms-auto
+            - if current_user&.smiled?(comment)
+              = render "reactions/destroy", type: "Comment", target: comment
+            - else
+              = render "reactions/create", type: "Comment", target: comment
+            .btn-group
+              %button.btn.btn-link.btn-sm.dropdown-toggle{ data: { bs_toggle: :dropdown }, aria: { expanded: false } }
+                %span.caret
+              = render "actions/comment", comment: comment, answer: a
