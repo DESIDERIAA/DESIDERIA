@@ -1,0 +1,25 @@
+- provide(:title, generate_title("Inbox"))
+.container.j2-page
+  .row
+    .col-md-3.col-xs-12.col-sm-3.hidden-xs
+      = render 'inbox/sidebar'
+    .col-md-9.col-xs-12.col-sm-9
+      = render 'layouts/messages'
+      #entries
+        - @inbox.each do |i|
+          = render 'inbox/entry', i: i
+
+        - if @inbox.empty?
+          = t 'views.inbox.empty'
+
+      #pagination= will_paginate @inbox, renderer: BootstrapPagination::Rails, page_links: false
+
+      - if @inbox.next_page
+        %button#load-more-btn.btn.btn-default{type: :button, data: { current_page: @inbox.current_page }}
+          = t 'views.actions.load'
+
+    .col-md-9.col-xs-12.col-sm-9.visible-xs
+      = render 'inbox/sidebar'
+
+= render "shared/links"
+- @inbox.update_all(new: false)

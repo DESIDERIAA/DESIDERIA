@@ -1,0 +1,47 @@
+.user-list {
+  margin: 0;
+  padding: 0;
+}
+
+.user-list-entry-smiles {
+  * {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  img {
+    height: 64px
+  }
+
+  span {
+    margin-left: 5px;
+  }
+
+  a:hover {
+    text-decoration: none;
+    span {
+      text-decoration: underline;
+    }
+  }
+}
+
+.btn-expand {
+  width: 100%;
+}
+
+.no-pad:not(:first-child):not(:last-child) {
+  margin-left: 0;
+  padding-left: 0;
+  margin-right: 0;
+  padding-right: 0;
+}
+
+.no-pad:first-child {
+  margin-right: 0;
+  padding-right: 0;
+}
+
+.no-pad:last-child {
+  margin-left: 0;
+  padding-left: 0;
+}
