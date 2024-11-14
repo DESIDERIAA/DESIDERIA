@@ -1,0 +1,49 @@
+.dropdown-menu.profile-dropdown{ id: "rs-#{size}-nav-profile" }
+  %h6.dropdown-header.d-none.d-sm-block= current_user.screen_name
+  %a.dropdown-item{ href: user_path(current_user) }
+    %i.fa.fa-fw.fa-user
+    = t(".profile")
+  %a.dropdown-item{ href: edit_user_registration_path }
+    %i.fa.fa-fw.fa-cog
+    = t(".settings")
+  .dropdown-divider
+  - if current_user.has_role?(:administrator)
+    %a.dropdown-item{ href: rails_admin_path }
+      %i.fa.fa-fw.fa-cogs
+      = t(".admin")
+    %a.dropdown-item{ href: sidekiq_web_path }
+      %i.fa.fa-fw.fa-bar-chart
+      = t(".sidekiq")
+    %a.dropdown-item{ href: pghero_path }
+      %i.fa.fa-fw.fa-database
+      = t(".pghero")
+    %a.dropdown-item{ href: announcement_index_path }
+      %i.fa.fa-fw.fa-info
+      = t(".announcements")
+    .dropdown-divider
+  - if current_user.mod?
+    - if moderation_view?
+      = link_to moderation_toggle_unmask_path, method: :post, class: "dropdown-item" do
+        %i.fa.fa-toggle-on
+        = t(".unmask.disable")
+    - else
+      = link_to moderation_toggle_unmask_path, method: :post, class: "dropdown-item" do
+        %i.fa.fa-toggle-off
+        = t(".unmask.enable")
+    %a.dropdown-item{ href: moderation_path }
+      %i.fa.fa-fw.fa-gavel
+      = t(".moderation")
+    .dropdown-divider
+  - if APP_CONFIG["canny"]
+    %h6.dropdown-header.d-none.d-sm-block
+      = t(".feedback.heading")
+    %a.dropdown-item{ href: feedback_bugs_path }
+      %i.fa.fa-fw.fa-bug
+      = t(".feedback.bugs")
+    %a.dropdown-item{ href: feedback_features_path }
+      %i.fa.fa-fw.fa-flask
+      = t(".feedback.features")
+    .dropdown-divider
+  = button_to destroy_user_session_path, method: "delete", class: "dropdown-item" do
+    %i.fa.fa-fw.fa-sign-out
+    = t("voc.logout")
