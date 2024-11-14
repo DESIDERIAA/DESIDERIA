@@ -1,0 +1,15 @@
+- unless @user.banned?
+  #answers
+    - @answers.each do |a|
+      = render 'answerbox', a: a
+
+- if @more_data_available
+  .d-flex.justify-content-center.justify-content-sm-start#paginator
+    = button_to user_path(@user, last_id: @answers_last_id), class: "btn btn-light" do
+      = t("voc.load")
+
+:ruby
+  provide(:title, user_title(@user))
+  provide(:og, user_opengraph(@user))
+  provide(:meta, user_twitter_card(@user))
+  parent_layout 'user/profile'

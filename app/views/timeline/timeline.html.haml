@@ -1,0 +1,11 @@
+#timeline
+  - @timeline.each do |answer|
+    = render "answerbox", a: answer
+
+- if @more_data_available
+  .d-flex.justify-content-center#paginator
+    = button_to "#{request.path}?last_id=#{@timeline_last_id}", class: "btn btn-light" do
+      = t("voc.load")
+
+- provide(:title, @title || APP_CONFIG["site_name"])
+- parent_layout 'feed'
