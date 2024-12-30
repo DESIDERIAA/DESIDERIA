@@ -190,10 +190,10 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.57.1.tgz#de633db3ec2ef6a3c89e2f19038063e8a122e2c2"
   integrity sha512-d9zaMRSTIKDLhctzH12MtXvJKSSUhaHcjV+2Z+GK+EEY7XKpP5yR4x+N3TAcHTcu963nIr+TMcCb4DBCYX1z6Q==
 
-"@fontsource/lexend@^4.5.15":
-  version "4.5.15"
-  resolved "https://registry.yarnpkg.com/@fontsource/lexend/-/lexend-4.5.15.tgz#ee033b850224d05b665d6661bf8d32c950f166bb"
-  integrity sha512-6edLmDmte8pJWtQ1NIahcJq0iWlf6b0/JLwkd7WbDQ3C5tZWnxjvbP4RSklMv4MPzGjpuYuYnc+QANbjUws1oA==
+"@fontsource/lexend@^5.1.2":
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/@fontsource/lexend/-/lexend-5.1.2.tgz#71c4b2562ae561fc08ef8ab95e29b0deb7b43d1f"
+  integrity sha512-ee4+mnk4Nu2C6QI78dO7zENRcVNE7oiLdaKm36/aI6tx4I/YNm69UJL2EYkwg8Pt0oQe7PPT2qXggvgRX8aruw==
 
 "@fortawesome/fontawesome-free@^6.6.0":
   version "6.6.0"
