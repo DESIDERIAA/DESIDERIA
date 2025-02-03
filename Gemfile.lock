@@ -329,7 +329,7 @@ GEM
     pg (1.5.9)
     pghero (3.6.1)
       activerecord (>= 6.1)
-    prometheus-client (4.2.3)
+    prometheus-client (4.2.4)
       base64
     public_suffix (6.0.1)
     puma (6.4.3)
